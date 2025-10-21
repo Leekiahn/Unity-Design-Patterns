@@ -1,50 +1,34 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DIController : MonoBehaviour
 {
-    private Button _swordButton;
-    private Button _gunButton;
-    private Button _grenadeButton;
+    [SerializeField] private Button _swordButton;
+    [SerializeField] private Button _gunButton;
+    [SerializeField] private Button _grenadeButton;
     
-    private IWeapon _currentWeapon;
-    private Sword _sword;
-    private Gun _gun;
+    private IWeapon _currentWeapon; 
+    private Sword _sword; 
+    private Gun _gun; 
     private Grenade _grenade;
     
-    private PlayerController _player;
+    [SerializeField] private PlayerController _player;
 
     private void Awake()
     {
-        _sword = GetComponentInChildren<Sword>();
-        if(_sword == null) { Debug.LogError("Sword 컴포넌트를 가진 하위 오브젝트를 찾을 수 없음"); return;}
-        _gun = GetComponentInChildren<Gun>();
-        if(_gun == null) { Debug.LogError("Gun 컴포넌트를 가진 하위 오브젝트를 찾을 수 없음"); return;}
-        _grenade = GetComponentInChildren<Grenade>();
-        if(_grenade == null) { Debug.LogError("Grenade 컴포넌트를 가진 하위 오브젝트를 찾을 수 없음"); return;}
+        if (_swordButton == null) { Debug.LogError("Sword 버튼이 할당되지 않았습니다."); return; }
+        if (_gunButton == null) { Debug.LogError("Gun 버튼이 할당되지 않았습니다."); return; }
+        if (_grenadeButton == null) { Debug.LogError("Grenade 버튼이 할당되지 않았습니다."); return; }
 
-        if (!_sword.gameObject.TryGetComponent(out _swordButton))
-        {
-            Debug.LogError("Sword Button 컴포넌트를 찾을 수 없습니다.");
-            return;
-        }
-        else{ _swordButton.onClick.AddListener(OnSwordButtonClicked); }
-        
-        if (!_gun.gameObject.TryGetComponent(out _gunButton))
-        {
-            Debug.LogError("Gun Button 컴포넌트를 찾을 수 없습니다.");
-            return;
-        }
-        else{ _gunButton.onClick.AddListener(OnGunButtonClicked); }
-        
-        if (!_grenade.gameObject.TryGetComponent(out _grenadeButton))
-        {
-            Debug.LogError("Grenade Button 컴포넌트를 찾을 수 없습니다.");
-            return;
-        }
-        else{ _grenadeButton.onClick.AddListener(OnGrenadeButtonClicked); }
+        if (!_swordButton.gameObject.TryGetComponent(out _sword)) { Debug.LogError("Sword 컴포넌트를 찾을 수 없습니다."); return; }
+        if (!_gunButton.gameObject.TryGetComponent(out _gun)) { Debug.LogError("Gun 컴포넌트를 찾을 수 없습니다."); return; }
+        if (!_grenadeButton.gameObject.TryGetComponent(out _grenade)) { Debug.LogError("Grenade 컴포넌트를 찾을 수 없습니다."); return;}
 
-        _player = FindAnyObjectByType<PlayerController>();
+        _swordButton.onClick.AddListener(OnSwordButtonClicked);
+        _gunButton.onClick.AddListener(OnGunButtonClicked);
+        _grenadeButton.onClick.AddListener(OnGrenadeButtonClicked);
+        
         if(_player == null) { Debug.LogError("씬에서 PlayerController 컴포넌트를 찾을 수 없습니다.");}
     }
     
@@ -64,5 +48,12 @@ public class DIController : MonoBehaviour
     {
         _currentWeapon = _grenade;
         _player.Attack(_currentWeapon);
+    }
+
+    private void OnDestroy()
+    {
+        _swordButton.onClick.RemoveListener(OnSwordButtonClicked);
+        _gunButton.onClick.RemoveListener(OnGunButtonClicked);
+        _grenadeButton.onClick.RemoveListener(OnGrenadeButtonClicked);
     }
 }
