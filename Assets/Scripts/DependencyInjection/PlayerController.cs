@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+namespace DependencyInjection
 {
-    public void Attack(IWeapon weapon)
+    public class PlayerController : MonoBehaviour
     {
-        weapon.Attack();
+        public void Attack(IWeapon weapon)
+        {
+            weapon.Attack();
+        }
     }
 }

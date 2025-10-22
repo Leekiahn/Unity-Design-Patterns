@@ -1,6 +1,7 @@
-using UnityEngine;
-
-public interface IWeapon
+namespace DependencyInjection
 {
-    void Attack();
+    public interface IWeapon
+    {
+        void Attack();
+    }
 }
