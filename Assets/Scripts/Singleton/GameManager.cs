@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class GameManager : GenericSingleton<GameManager>
+namespace SingletonPattern
 {
-    public void Test()
+    public class GameManager : GenericSingleton<GameManager>
     {
-        Debug.Log("GameManager Test");
+        public void Test()
+        {
+            Debug.Log("GameManager Test");
+        }
     }
 }

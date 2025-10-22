@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class SoundManager : GenericSingleton<SoundManager>
+namespace SingletonPattern
 {
-    public void Test()
+    public class SoundManager : GenericSingleton<SoundManager>
     {
-        Debug.Log("SoundManager Test");
+        public void Test()
+        {
+            Debug.Log("SoundManager Test");
+        }
     }
 }
