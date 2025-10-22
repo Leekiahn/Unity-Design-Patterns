@@ -1024,9 +1024,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 604603380}
   - {fileID: 1439917919}
   - {fileID: 355291739}
+  - {fileID: 604603380}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1046,6 +1046,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435ea0dd8e8a8cf4cad37f2f04c65085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DIController
+  _swordButton: {fileID: 604603381}
+  _gunButton: {fileID: 1439917920}
+  _grenadeButton: {fileID: 355291740}
+  _player: {fileID: 1490130027}
 --- !u!1 &1531557186
 GameObject:
   m_ObjectHideFlags: 0
