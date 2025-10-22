@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class Gun : MonoBehaviour, IWeapon
+namespace DependencyInjection
 {
-    public void Attack()
+    public class Gun : MonoBehaviour, IWeapon
     {
-        Debug.Log("총 발사!");
+        public void Attack()
+        {
+            Debug.Log("총 발사!");
+        }
     }
 }

@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class Sword : MonoBehaviour, IWeapon
+namespace DependencyInjection
 {
-    public void Attack()
+    public class Sword : MonoBehaviour, IWeapon
     {
-        Debug.Log("검 공격!");
+        public void Attack()
+        {
+            Debug.Log("검 공격!");
+        }
     }
 }

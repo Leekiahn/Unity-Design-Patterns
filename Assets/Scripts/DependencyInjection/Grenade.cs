@@ -1,9 +1,13 @@
 using UnityEngine;
 
-public class Grenade : MonoBehaviour,IWeapon
+namespace DependencyInjection
 {
-    public void Attack()
+    public class Grenade : MonoBehaviour,IWeapon
     {
-        Debug.Log("수류탄 투척!");
+        public void Attack()
+        {
+            Debug.Log("수류탄 투척!");
+        }
     }
 }
+
