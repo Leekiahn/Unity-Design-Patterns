@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public class LazySingletonButton : MonoBehaviour
+namespace SingletonPattern
 {
-    public void OnButtonClick()
+    public class LazySingletonButton : MonoBehaviour
     {
-        LazyInitSingleton.Instance.CreateLazySingleton();
-        // LazyInitSingleton 인스턴스 생성 및 메서드 호출
+        public void OnButtonClick()
+        {
+            LazyInitSingleton.Instance.CreateLazySingleton();
+            // LazyInitSingleton 인스턴스 생성 및 메서드 호출
+        }
     }
 }
