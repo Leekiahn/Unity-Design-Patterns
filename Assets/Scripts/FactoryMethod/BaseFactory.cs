@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public abstract class BaseFactory : MonoBehaviour
+namespace FactoryMethod
 {
-    public abstract BaseMonster SpawnMonster();
+    public abstract class BaseFactory : MonoBehaviour
+    {
+        public abstract BaseMonster SpawnMonster();
+    }
 }

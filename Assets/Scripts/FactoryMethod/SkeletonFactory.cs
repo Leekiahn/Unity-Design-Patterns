@@ -1,25 +1,15 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class SkeletonFactory : BaseFactory
+namespace FactoryMethod
 {
-    [SerializeField] private Button spawnButton;
-    [SerializeField] private BaseMonster skeleton;
-
-    private void Awake()
+    public class SkeletonFactory : GenericMonsterFactory<SkeletonMonster>
     {
-        spawnButton.onClick.AddListener(() => SpawnMonster());
-    }
-
-    public override BaseMonster SpawnMonster()
-    {
-        Debug.Log("스켈레톤 팩토리에서 몬스터 생성");
-        return Instantiate(skeleton);
-    }
-    
-    private void OnDisable()
-    {
-        spawnButton.onClick.RemoveAllListeners();
+        public override BaseMonster SpawnMonster()
+        {
+            GameObject skeletonObject = new GameObject("Skeleton");
+            SkeletonMonster skeleton = skeletonObject.AddComponent<SkeletonMonster>();
+            return skeleton;
+        }
     }
 }
+

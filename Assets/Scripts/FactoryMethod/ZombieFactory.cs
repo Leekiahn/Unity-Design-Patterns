@@ -1,26 +1,15 @@
-using System;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
 
-public class ZombieFactory : BaseFactory
+namespace FactoryMethod
 {
-    [SerializeField] private Button spawnButton;
-    [SerializeField] private BaseMonster zombie;
-    
-    private void Awake()
+    public class ZombieFactory : GenericMonsterFactory<ZombieMonster>
     {
-        spawnButton.onClick.AddListener(() => SpawnMonster());
-    }
-    
-    public override BaseMonster SpawnMonster()
-    {
-        Debug.Log("좀비 팩토리에서 몬스터 생성");
-        return Instantiate(zombie);
-    }
-
-    private void OnDisable()
-    {
-        spawnButton.onClick.RemoveAllListeners();
+        public override BaseMonster SpawnMonster()
+        {
+            GameObject zombieObject = new GameObject("Zombie");
+            ZombieMonster zombie = zombieObject.AddComponent<ZombieMonster>();
+            return zombie;
+        }
     }
 }
+
