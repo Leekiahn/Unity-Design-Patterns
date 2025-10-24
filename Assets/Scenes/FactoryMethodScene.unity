@@ -441,8 +441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2860426667bcc4d99e5a08e3c0965d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieFactory
-  monsterPrefab: {fileID: 0}
-  spawnButton: {fileID: 0}
+  monsterPrefab: {fileID: 4227359763005568887, guid: fb84efd6f9cbde2498cbd3df7fe5795e, type: 3}
+  spawnButton: {fileID: 1437584624}
 --- !u!114 &953874895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,8 +812,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87c664139cee8f49a0460bc0a349290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonFactory
-  monsterPrefab: {fileID: 0}
-  spawnButton: {fileID: 0}
+  monsterPrefab: {fileID: 5202597865349533932, guid: 77201d7a8ba850f4b8eef94025100906, type: 3}
+  spawnButton: {fileID: 30720317}
 --- !u!1 &1322209774
 GameObject:
   m_ObjectHideFlags: 0
